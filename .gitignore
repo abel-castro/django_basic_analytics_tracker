@@ -1,0 +1,7 @@
+*.pyc
+*.swp
+.idea
+.env
+.DS_Store
+.pytest_cache
+
