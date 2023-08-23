@@ -27,8 +27,11 @@ class TrackingMixin:
 
     @staticmethod
     def is_configured() -> bool:
-        return hasattr(settings, "BASIC_ANALYTICS_URL") and hasattr(
-            settings, "BASIC_ANALYTICS_ID"
+        return (
+            hasattr(settings, "BASIC_ANALYTICS_URL")
+            and hasattr(settings, "BASIC_ANALYTICS_ID")
+            and getattr(settings, "BASIC_ANALYTICS_URL") is not None
+            and getattr(settings, "BASIC_ANALYTICS_ID") is not None
         )
 
     def dispatch(self, request, *args, **kwargs):
