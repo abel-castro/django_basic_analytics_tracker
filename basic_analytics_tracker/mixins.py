@@ -45,6 +45,6 @@ class TrackingMixin:
                     f"Basic analytics API responded with status {basic_analytics_response.status_code}"
                     f" and message: '{basic_analytics_response.json()['message']}'"
                 )
-            except requests.exceptions.ConnectionError as e:
-                logger.info(f"Connection error to the Basic Analytics API: {e}")
+            except Exception as e:
+                logger.info(f"Error sending the request to the Basic Analytics API: {e}")
         return super().dispatch(request, *args, **kwargs)
